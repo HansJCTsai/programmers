@@ -30,7 +30,16 @@ def solution(clothes):
     clothes_map = {}
 
     for item, kind in clothes:
-        clothes_map_
+        clothes_map[kind] = clothes_map.get(kind, 0) + 1
+
+    # Multiply (count + 1) for each category
+    answer = 1
+    for count in clothes_map.values():
+        answer *= (count + 1)
+
+    # Subtract 1 to exclude the "wear nothing" case
+    return answer - 1
+
 print(solution([
     ["yellow_hat", "headgear"],
     ["blue_sunglasses", "eyewear"],
@@ -49,3 +58,4 @@ print(solution([
 # Output: 3
 # face: 3 items → (3+1) = 4 choices
 # Minus 1 = 3
+
